@@ -1,0 +1,132 @@
+.error-boundary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-container {
+  max-width: 600px;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f0f0f0;
+}
+
+.error-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.error-boundary h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--error, #dc3545);
+}
+
+.error-boundary p {
+  margin-bottom: 1.5rem;
+  color: var(--text-muted, #6c757d);
+}
+
+.error-details {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.error-details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark, #343a40);
+}
+
+.error-details details {
+  cursor: pointer;
+}
+
+.error-message {
+  color: #dc3545;
+  font-weight: 500;
+  margin: 1rem 0;
+}
+
+.stack-trace {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  color: var(--text-dark, #343a40);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #6c757d;
+  border: 1px solid #6c757d;
+}
+
+.btn-outline:hover {
+  background-color: #f8f9fa;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.error-persistence-warning {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 4px;
+  color: #856404;
+}
+
+@media (max-width: 768px) {
+  .error-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}

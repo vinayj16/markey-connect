@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  <g transform="translate(100, 50)">
+    <!-- Plate -->
+    <circle cx="100" cy="100" r="80" fill="#e9ecef" stroke="#dee2e6" stroke-width="2"/>
+    <circle cx="100" cy="100" r="70" fill="#ffffff" stroke="#dee2e6" stroke-width="1"/>
+    
+    <!-- Food items -->
+    <circle cx="70" cy="80" r="15" fill="#ff6b6b"/>
+    <circle cx="130" cy="80" r="15" fill="#4CAF50"/>
+    <circle cx="100" cy="120" r="15" fill="#ffd43b"/>
+    
+    <!-- Utensils -->
+    <line x1="180" y1="50" x2="180" y2="150" stroke="#6c757d" stroke-width="4"/>
+    <line x1="20" y1="50" x2="20" y2="150" stroke="#6c757d" stroke-width="4"/>
+  </g>
+  <text x="200" y="250" text-anchor="middle" font-family="Arial" font-size="24" fill="#495057">
+    Food & Groceries
+  </text>
+</svg> 

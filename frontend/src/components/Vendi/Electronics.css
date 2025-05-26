@@ -1,0 +1,126 @@
+/* src/components/Vendi/Electronics.css */
+
+.electronics-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9ff;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.categories {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.categories button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #e0e0ff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.product-card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.product-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.btn-cart {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-details {
+  background-color: #e2e8f0;
+  color: #333;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.vendor {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.vendors ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.vendors li {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.compare {
+  margin-top: 2rem;
+}
+
+.compare button {
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #dbeafe;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

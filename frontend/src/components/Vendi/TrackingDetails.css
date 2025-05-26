@@ -1,0 +1,305 @@
+/* TrackingDetails.css */
+@import '../../styles/theme.css';
+@import '../../styles/design-system.css';
+
+/* Base Container */
+.tracking-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+  background: var(--background-light);
+}
+
+/* Typography */
+.tracking-details-container h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-dark);
+  margin-bottom: var(--spacing-lg);
+}
+
+.tracking-details-container h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-color-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Common Section Styles */
+.tracking-header,
+.shipment-status,
+.detailed-tracking,
+.shipment-info,
+.delivery-options,
+.package-travel-map {
+  background: var(--surface-color);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Tracking Header */
+.tracking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.tracking-header p {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+/* Shipment Status */
+.shipment-status {
+  border-left: 4px solid var(--primary-color);
+}
+
+.shipment-status p {
+  font-size: var(--font-size-lg);
+  color: var(--text-primary);
+  margin: var(--spacing-xs) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Status Indicators */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-sm);
+}
+
+.status-indicator.in-transit {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.status-indicator.delivered {
+  background: var(--success-light);
+  color: var(--success-dark);
+}
+
+.status-indicator.delayed {
+  background: var(--warning-light);
+  color: var(--warning-dark);
+}
+
+/* Detailed Tracking */
+.detailed-tracking ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detailed-tracking li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.detailed-tracking li:last-child {
+  border-bottom: none;
+}
+
+.event-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.event-icon {
+  color: var(--primary-color);
+  font-size: var(--font-size-lg);
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-xs);
+}
+
+.event-location {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* Shipment Info */
+.shipment-info p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border-color);
+  margin: 0;
+}
+
+.shipment-info p:last-child {
+  border-bottom: none;
+}
+
+.shipment-info strong {
+  color: var(--text-color-dark);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Delivery Options */
+.delivery-options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.delivery-options li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.delivery-options li:last-child {
+  border-bottom: none;
+}
+
+.option-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.option-icon {
+  color: var(--primary-color);
+  font-size: var(--font-size-lg);
+}
+
+.option-description {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  max-width: 60%;
+  text-align: right;
+}
+
+/* Package Travel Map */
+.package-travel-map img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Dark Theme */
+.dark-theme {
+  .tracking-details-container {
+    background: var(--background-dark);
+  }
+
+  .tracking-details-container h1,
+  .tracking-details-container h2,
+  .detailed-tracking li strong,
+  .shipment-info strong,
+  .delivery-options li strong {
+    color: var(--text-color-light);
+  }
+
+  .tracking-header,
+  .shipment-status,
+  .detailed-tracking,
+  .shipment-info,
+  .delivery-options,
+  .package-travel-map {
+    background: var(--surface-color-dark);
+  }
+
+  .tracking-header p,
+  .shipment-status p,
+  .detailed-tracking li,
+  .shipment-info p,
+  .delivery-options li,
+  .event-location,
+  .option-description {
+    color: var(--text-secondary-dark);
+  }
+
+  .detailed-tracking li,
+  .shipment-info p,
+  .delivery-options li {
+    border-bottom-color: var(--border-color-dark);
+  }
+
+  .event-icon,
+  .option-icon {
+    color: var(--primary-color-light);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tracking-details-container {
+    padding: var(--spacing-lg);
+  }
+
+  .tracking-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detailed-tracking li,
+  .shipment-info p,
+  .delivery-options li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+
+  .event-details {
+    align-items: flex-start;
+  }
+
+  .option-description {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .tracking-details-container {
+    padding: var(--spacing-md);
+  }
+
+  .tracking-details-container h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .tracking-details-container h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .tracking-header,
+  .shipment-status,
+  .detailed-tracking,
+  .shipment-info,
+  .delivery-options,
+  .package-travel-map {
+    padding: var(--spacing-md);
+  }
+}

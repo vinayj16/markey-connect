@@ -1,0 +1,233 @@
+@import '../../styles/theme.css';
+@import '../../styles/design-system.css';
+
+/* Base Layout */
+.account-settings-container {
+  min-height: 100vh;
+  padding: var(--spacing-2xl);
+  background-color: var(--background-light);
+}
+
+.settings-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--background-white);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2xl);
+}
+
+/* Typography & Text Elements */
+.breadcrumb,
+.settings-subtitle,
+.upload-box p,
+.preference-item label {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.settings-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.section h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-color-dark);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Navigation */
+.nav-tabs {
+  display: flex;
+  gap: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+  overflow-x: auto;
+}
+
+.nav-tabs span {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding-bottom: var(--spacing-xs);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.nav-tabs span:hover {
+  color: var(--text-color-dark);
+}
+
+.nav-tabs span.active {
+  color: var(--text-color-dark);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* Form Elements */
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.form-group label {
+  font-weight: var(--font-weight-medium);
+}
+
+.input-style,
+.preference-item select {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  width: 100%;
+  background-color: var(--background-light);
+  transition: all var(--transition-fast);
+}
+
+.input-style:focus,
+.preference-item select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color-light);
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius-lg);
+}
+
+.upload-box {
+  background-color: var(--background-light);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 280px;
+}
+
+.upload-box input[type="file"] {
+  width: 100%;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Preferences */
+.preferences {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.preference-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+/* Dark Theme */
+.dark-theme {
+  .account-settings-container {
+    background-color: var(--background-dark);
+  }
+
+  .settings-wrapper {
+    background: var(--background-dark-secondary);
+  }
+
+  .settings-title,
+  .section h3,
+  .nav-tabs span:hover,
+  .nav-tabs span.active,
+  .form-group label,
+  .preference-item label {
+    color: var(--text-color-light);
+  }
+
+  .breadcrumb,
+  .settings-subtitle,
+  .upload-box p {
+    color: var(--text-secondary-dark);
+  }
+
+  .nav-tabs span.active {
+    border-bottom-color: var(--primary-color-light);
+  }
+
+  .input-style,
+  .preference-item select,
+  .upload-box {
+    background-color: var(--background-dark);
+    color: var(--text-color-light);
+    border-color: var(--border-color-dark);
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .profile-section {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .account-settings-container,
+  .settings-wrapper {
+    padding: var(--spacing-lg);
+  }
+
+  .nav-tabs {
+    gap: var(--spacing-md);
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .account-settings-container,
+  .settings-wrapper {
+    padding: var(--spacing-md);
+  }
+
+  .settings-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+}

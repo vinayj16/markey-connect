@@ -1,0 +1,191 @@
+/* Theme CSS styles - Connected with Design System */
+
+:root {
+  /* Colors - Connected with Design System */
+  --color-primary: var(--color-primary-500);
+  --color-primary-dark: var(--color-primary-600);
+  --color-primary-light: var(--color-primary-100);
+  --color-primary-darker: var(--color-primary-700);
+  
+  --color-success: var(--color-success);
+  --color-success-light: var(--color-success-light);
+  --color-success-dark: var(--color-success-dark);
+  
+  --color-error: var(--color-danger);
+  --color-error-light: var(--color-danger-light);
+  --color-error-dark: var(--color-danger-dark);
+  
+  --color-warning: var(--color-warning);
+  --color-warning-light: var(--color-warning-light);
+  --color-warning-dark: var(--color-warning-dark);
+  
+  --color-info: var(--color-info);
+  --color-info-light: var(--color-info-light);
+  --color-info-dark: var(--color-info-dark);
+
+  /* Surface Colors - Connected with Design System */
+  --surface-color: var(--color-secondary-50);
+  --surface-hover: var(--color-secondary-100);
+  --surface-active: var(--color-secondary-200);
+  
+  /* Text Colors - Connected with Design System */
+  --text-primary: var(--color-secondary-900);
+  --text-secondary: var(--color-secondary-700);
+  --text-tertiary: var(--color-secondary-500);
+  
+  /* Border Colors - Connected with Design System */
+  --border-color: var(--color-secondary-200);
+  --border-hover: var(--color-secondary-300);
+  
+  /* Shadows - Connected with Design System */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  
+  /* Spacing - Connected with Design System */
+  --spacing-xs: var(--space-1);
+  --spacing-sm: var(--space-2);
+  --spacing-md: var(--space-4);
+  --spacing-lg: var(--space-6);
+  --spacing-xl: var(--space-8);
+  --spacing-2xl: var(--space-12);
+  
+  /* Border Radius - Connected with Design System */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-full: var(--radius-full);
+  
+  /* Typography - Connected with Design System */
+  --font-sans: var(--font-family-sans);
+  --font-mono: var(--font-family-mono);
+  
+  /* Font Sizes - Connected with Design System */
+  --text-xs: var(--font-size-xs);
+  --text-sm: var(--font-size-sm);
+  --text-base: var(--font-size-base);
+  --text-lg: var(--font-size-lg);
+  --text-xl: var(--font-size-xl);
+  --text-2xl: var(--font-size-2xl);
+  --text-3xl: var(--font-size-3xl);
+  --text-4xl: var(--font-size-4xl);
+  
+  /* Line Heights - Connected with Design System */
+  --leading-none: var(--line-height-none);
+  --leading-tight: var(--line-height-tight);
+  --leading-snug: var(--line-height-snug);
+  --leading-normal: var(--line-height-normal);
+  --leading-relaxed: var(--line-height-relaxed);
+  --leading-loose: var(--line-height-loose);
+  
+  /* Transitions - Connected with Design System */
+  --transition-fast: var(--transition-all);
+  --transition-normal: var(--transition-all);
+  --transition-slow: var(--transition-all);
+  
+  /* Z-index - Connected with Design System */
+  --z-0: var(--z-0);
+  --z-10: var(--z-10);
+  --z-20: var(--z-20);
+  --z-30: var(--z-30);
+  --z-40: var(--z-40);
+  --z-50: var(--z-50);
+  --z-auto: var(--z-auto);
+}
+
+/* Dark Theme - Connected with Design System */
+[data-theme="dark"] {
+  --surface-color: var(--color-secondary-900);
+  --surface-hover: var(--color-secondary-800);
+  --surface-active: var(--color-secondary-700);
+  
+  --text-primary: var(--color-secondary-50);
+  --text-secondary: var(--color-secondary-200);
+  --text-tertiary: var(--color-secondary-400);
+  
+  --border-color: var(--color-secondary-700);
+  --border-hover: var(--color-secondary-600);
+  
+  --shadow-sm: var(--shadow-md);
+  --shadow-md: var(--shadow-lg);
+  --shadow-lg: var(--shadow-xl);
+}
+
+/* Base Theme Styles - Connected with Design System */
+body {
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-colors);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* Theme Utilities - Connected with Design System */
+.theme-transition {
+  transition: var(--transition-all);
+}
+
+.theme-focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-100);
+}
+
+.theme-text-gradient {
+  background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.theme-border-gradient {
+  border-image: linear-gradient(to right, var(--color-primary), var(--color-primary-dark)) 1;
+}
+
+/* Theme Animations - Connected with Design System */
+@keyframes theme-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes theme-slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.theme-fade-in {
+  animation: theme-fade-in var(--transition-normal);
+}
+
+.theme-slide-up {
+  animation: theme-slide-up var(--transition-normal);
+}
+
+/* Theme Print Styles - Connected with Design System */
+@media print {
+  .theme-no-print {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+}

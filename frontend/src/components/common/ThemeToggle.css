@@ -1,0 +1,105 @@
+@import '../../styles/theme.css';
+
+.theme-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  background-color: var(--surface-hover);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.theme-toggle:hover {
+  background-color: var(--surface-hover-alt);
+}
+
+.theme-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.theme-toggle-icon {
+  font-size: var(--text-lg);
+  color: var(--text-primary);
+  transition: transform var(--transition-fast);
+}
+
+.theme-toggle:hover .theme-toggle-icon {
+  transform: rotate(15deg);
+}
+
+.theme-toggle-text {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+/* Theme Toggle Animation */
+@keyframes themeToggle {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.theme-toggle.active .theme-toggle-icon {
+  animation: themeToggle 0.3s ease-in-out;
+}
+
+/* Dark Theme */
+[data-theme="dark"] .theme-toggle {
+  background-color: var(--surface-hover);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background-color: var(--surface-hover-alt);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .theme-toggle {
+    padding: var(--spacing-xs);
+  }
+
+  .theme-toggle-text {
+    display: none;
+  }
+}
+
+/* Accessibility */
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.theme-toggle:active {
+  transform: scale(0.98);
+}
+
+/* Loading State */
+.theme-toggle.loading {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.theme-toggle.loading .theme-toggle-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 

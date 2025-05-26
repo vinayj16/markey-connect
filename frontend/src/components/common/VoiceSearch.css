@@ -1,0 +1,322 @@
+:root {
+  /* Colors */
+  --vs-primary: #4f46e5;
+  --vs-primary-hover: #4338ca;
+  --vs-bg: #ffffff;
+  --vs-text: #1f2937;
+  --vs-border: #e5e7eb;
+  --vs-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --vs-radius: 0.5rem;
+  --vs-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Dark theme */
+  --vs-dark-bg: #1f2937;
+  --vs-dark-text: #f9fafb;
+  --vs-dark-border: #374151;
+  --vs-dark-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark theme */
+[data-theme='dark'] .voice-search-container,
+.voice-search-container.dark {
+  --vs-bg: var(--vs-dark-bg);
+  --vs-text: var(--vs-dark-text);
+  --vs-border: var(--vs-dark-border);
+  --vs-shadow: var(--vs-dark-shadow);
+}
+
+.voice-search-container {
+  position: relative;
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.voice-search-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--vs-bg);
+  border: 1px solid var(--vs-border);
+  box-shadow: var(--vs-shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: var(--vs-transition);
+  color: var(--vs-text);
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: linear-gradient(135deg, var(--vs-primary), #6366f1);
+  border-color: #dc3545;
+  color: white;
+}
+
+.voice-search-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mic-icon {
+  font-style: normal;
+  font-size: 1.2rem;
+}
+
+.pulse-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(220, 53, 69, 0.3);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+.voice-search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.voice-search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.voice-search-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #343a40;
+}
+
+.language-selector select {
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  font-size: 0.875rem;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6c757d;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+.close-modal:hover {
+  color: #343a40;
+}
+
+.voice-search-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.listening-indicator {
+  margin-bottom: 1.5rem;
+}
+
+.wave-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.wave-animation span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin: 0 3px;
+  background-color: #dc3545;
+  border-radius: 50%;
+  animation: wave 1.5s infinite ease-in-out;
+}
+
+.wave-animation span:nth-child(1) { animation-delay: 0s; }
+.wave-animation span:nth-child(2) { animation-delay: 0.2s; }
+.wave-animation span:nth-child(3) { animation-delay: 0.4s; }
+.wave-animation span:nth-child(4) { animation-delay: 0.6s; }
+.wave-animation span:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes wave {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(2); }
+}
+
+.transcript {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  min-height: 60px;
+}
+
+.final-transcript {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.confidence-meter {
+  height: 4px;
+  background-color: #e9ecef;
+  border-radius: 2px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.confidence-bar {
+  height: 100%;
+  background-color: #28a745;
+  transition: width 0.3s ease;
+}
+
+.voice-search-error {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  color: #721c24;
+}
+
+.retry-button {
+  margin-top: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.retry-button:hover {
+  background-color: #c82333;
+}
+
+.voice-command-examples {
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.voice-command-examples h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #343a40;
+}
+
+.voice-command-examples ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.voice-command-examples li {
+  padding: 0.25rem 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.voice-search-hint {
+  margin-top: 1.5rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.voice-search-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.cancel-button {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid #6c757d;
+  color: #6c757d;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-button:hover {
+  background-color: #f8f9fa;
+}
+
+.voice-search-unsupported {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  z-index: 100;
+  font-size: 0.85rem;
+  color: #6c757d;
+  display: none;
+}
+
+.voice-search-button.disabled:hover + .voice-search-unsupported {
+  display: block;
+}
+
+@media (max-width: 576px) {
+  .voice-search-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  .transcript {
+    font-size: 1rem;
+  }
+}

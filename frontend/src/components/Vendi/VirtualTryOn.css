@@ -1,0 +1,408 @@
+/* VirtualTryOn.css */
+@import '../../styles/theme.css';
+@import '../../styles/design-system.css';
+
+.virtual-try-on {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Try-On Button */
+.try-on-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--primary-color);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.try-on-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.try-on-icon {
+  font-size: var(--font-size-lg);
+}
+
+/* Modal */
+.try-on-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.try-on-content {
+  background: var(--surface-color);
+  border-radius: var(--border-radius-xl);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.4s ease;
+}
+
+/* Header */
+.try-on-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.try-on-header h3 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.close-try-on {
+  background: none;
+  border: none;
+  font-size: var(--font-size-2xl);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  transition: color var(--transition-fast);
+}
+
+.close-try-on:hover {
+  color: var(--error-color);
+}
+
+/* Loading State */
+.try-on-loading {
+  padding: var(--spacing-2xl);
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  margin: 0 auto var(--spacing-md);
+  animation: spin 1s linear infinite;
+}
+
+/* Camera Container */
+.camera-container {
+  position: relative;
+  width: 100%;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.camera-container video {
+  width: 100%;
+  max-width: 640px;
+  border-radius: var(--border-radius-lg);
+  background: var(--surface-color-alt);
+}
+
+.camera-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border: 2px dashed var(--primary-color);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.camera-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.capture-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.capture-button:hover {
+  background: var(--primary-dark);
+  transform: scale(1.1);
+}
+
+.capture-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--text-color-light);
+  border-radius: 50%;
+}
+
+.camera-instructions {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
+/* Product Options */
+.product-options {
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+}
+
+.product-options h4 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.product-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm);
+}
+
+.product-image-option {
+  aspect-ratio: 1;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.product-image-option:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.product-image-option.selected {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+}
+
+.product-image-option img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Result View */
+.try-on-result {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.result-image-container {
+  width: 100%;
+  max-width: 640px;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.result-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.result-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.result-actions button {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.try-again-button {
+  background: var(--primary-color);
+  color: var(--text-color-light);
+  border: none;
+}
+
+.try-again-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.share-result-button {
+  background: var(--surface-color-alt);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.share-result-button:hover {
+  background: var(--surface-color-alt-dark);
+  transform: translateY(-2px);
+}
+
+.download-result-button {
+  background: var(--success-color);
+  color: var(--text-color-light);
+  border: none;
+}
+
+.download-result-button:hover {
+  background: var(--success-dark);
+  transform: translateY(-2px);
+}
+
+/* Camera Permission Denied */
+.camera-permission-denied {
+  padding: var(--spacing-2xl);
+  text-align: center;
+  color: var(--error-color);
+}
+
+.retry-button {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--primary-color);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.retry-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Dark Theme */
+.dark-theme {
+  .try-on-content {
+    background: var(--surface-color-dark);
+  }
+
+  .try-on-header {
+    border-color: var(--border-color-dark);
+  }
+
+  .camera-container video {
+    background: var(--surface-color-alt-dark);
+  }
+
+  .product-options {
+    border-color: var(--border-color-dark);
+  }
+
+  .share-result-button {
+    background: var(--surface-color-alt-dark);
+    border-color: var(--border-color-dark);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .try-on-content {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .camera-overlay {
+    width: 250px;
+    height: 250px;
+  }
+
+  .result-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .result-actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .try-on-header {
+    padding: var(--spacing-md);
+  }
+
+  .camera-container {
+    padding: var(--spacing-md);
+  }
+
+  .camera-overlay {
+    width: 200px;
+    height: 200px;
+  }
+
+  .product-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} 

@@ -1,0 +1,326 @@
+/* SportsOutdoor.css */
+@import '../../styles/theme.css';
+@import '../../styles/design-system.css';
+
+/* Base Layout & Container */
+.sports-outdoor-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+  background: var(--background-light);
+}
+
+/* Header & Typography */
+.sports-outdoor-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.sports-outdoor-header h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.sports-outdoor-header p {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Search Bar */
+.search-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+
+.search-bar {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) calc(var(--spacing-md) * 2 + 16px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-base);
+  background: var(--surface-color);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+/* Section Headers */
+.featured-items h2,
+.best-sellers h2,
+.shop-by-category h2,
+.team-activities h2,
+.popular-brands h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-color-dark);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Grid Layouts */
+.item-grid,
+.image-grid,
+.brand-grid,
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Cards */
+.item-card,
+.category-card,
+.brand-card {
+  background: var(--surface-color);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: transform var(--transition-fast);
+}
+
+.item-card:hover,
+.category-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.item-card h3,
+.category-card h3,
+.brand-card h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-color-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.item-card p {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Images */
+.item-image,
+.brand-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+}
+
+.add-to-cart,
+.details {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.add-to-cart {
+  background: var(--primary-color);
+  color: var(--text-color-light);
+}
+
+.add-to-cart:hover {
+  background: var(--primary-dark);
+}
+
+.details {
+  background: var(--surface-color-alt);
+  color: var(--text-primary);
+}
+
+.details:hover {
+  background: var(--surface-color-alt-dark);
+}
+
+/* Table Styles */
+.table-responsive {
+  overflow-x: auto;
+  margin-bottom: var(--spacing-2xl);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+table th {
+  background: var(--surface-color-alt);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-color-dark);
+}
+
+/* Status Indicators */
+.status {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.status.in-stock {
+  background: var(--success-light);
+  color: var(--success-dark);
+}
+
+.status.low-stock {
+  background: var(--warning-light);
+  color: var(--warning-dark);
+}
+
+/* Category List */
+.category-card {
+  cursor: pointer;
+  text-align: left;
+}
+
+.category-card.selected {
+  border: 2px solid var(--primary-color);
+}
+
+.category-card ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-sm) 0 0;
+}
+
+.category-card li {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+
+/* Dark Theme */
+.dark-theme {
+  .sports-outdoor-container {
+    background: var(--background-dark);
+  }
+
+  .sports-outdoor-header h1,
+  .featured-items h2,
+  .best-sellers h2,
+  .shop-by-category h2,
+  .team-activities h2,
+  .popular-brands h2,
+  .item-card h3,
+  .category-card h3,
+  .brand-card h3,
+  table th {
+    color: var(--text-color-light);
+  }
+
+  .sports-outdoor-header p,
+  .item-card p,
+  .category-card li {
+    color: var(--text-secondary-dark);
+  }
+
+  .search-bar,
+  .item-card,
+  .category-card,
+  .brand-card {
+    background: var(--surface-color-dark);
+    color: var(--text-color-light);
+    border-color: var(--border-color-dark);
+  }
+
+  .details {
+    background: var(--surface-color-alt-dark);
+    color: var(--text-color-light);
+  }
+
+  .details:hover {
+    background: var(--surface-color-alt);
+  }
+
+  table th {
+    background: var(--surface-color-alt-dark);
+  }
+
+  table th,
+  table td {
+    border-bottom-color: var(--border-color-dark);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sports-outdoor-container {
+    padding: var(--spacing-lg);
+  }
+
+  .item-grid,
+  .image-grid,
+  .brand-grid,
+  .category-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .add-to-cart,
+  .details {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sports-outdoor-container {
+    padding: var(--spacing-md);
+  }
+
+  .sports-outdoor-header h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .item-grid,
+  .image-grid,
+  .brand-grid,
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}

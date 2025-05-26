@@ -1,0 +1,229 @@
+/* ReturnRequest.css */
+@import '../../styles/theme.css';
+@import '../../styles/design-system.css';
+
+/* Base Layout */
+.return-request-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+  background-color: var(--background-light);
+}
+
+/* Typography & Text Elements */
+.return-header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.return-header h1,
+.form-section h2,
+.item-name,
+.summary-row.total {
+  color: var(--text-color-dark);
+  font-weight: var(--font-weight-bold);
+}
+
+.return-header h1 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.form-section h2 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.return-date,
+.return-policy,
+.item-details {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+}
+
+.return-policy {
+  line-height: var(--line-height-relaxed);
+}
+
+/* Form Sections */
+.form-section {
+  background: var(--background-white);
+  padding: var(--spacing-2xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Items List */
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.item-selection {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.item-checkbox,
+.method-radio {
+  width: var(--spacing-md);
+  height: var(--spacing-md);
+  cursor: pointer;
+}
+
+.item-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  cursor: pointer;
+}
+
+/* Form Elements */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.return-select,
+.return-textarea {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  width: 100%;
+  background-color: var(--background-light);
+  transition: all var(--transition-fast);
+}
+
+.return-select:focus,
+.return-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color-light);
+}
+
+/* Return Method */
+.return-method {
+  display: flex;
+  gap: var(--spacing-xl);
+}
+
+.method-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+}
+
+/* Return Summary */
+.return-summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-row.total {
+  font-size: var(--font-size-lg);
+  padding-top: var(--spacing-md);
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--spacing-xl);
+}
+
+/* Dark Theme */
+.dark-theme {
+  .return-request-container {
+    background-color: var(--background-dark);
+  }
+
+  .form-section {
+    background: var(--background-dark-secondary);
+  }
+
+  .return-header h1,
+  .form-section h2,
+  .item-name,
+  .summary-row.total {
+    color: var(--text-color-light);
+  }
+
+  .return-date,
+  .return-policy,
+  .item-details {
+    color: var(--text-secondary-dark);
+  }
+
+  .return-select,
+  .return-textarea {
+    background-color: var(--background-dark);
+    color: var(--text-color-light);
+    border-color: var(--border-color-dark);
+  }
+
+  .summary-row {
+    border-bottom-color: var(--border-color-dark);
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .return-method {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 768px) {
+  .return-request-container,
+  .form-section {
+    padding: var(--spacing-lg);
+  }
+
+  .return-method {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .return-request-container,
+  .form-section {
+    padding: var(--spacing-md);
+  }
+
+  .return-header h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .item-label {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+}

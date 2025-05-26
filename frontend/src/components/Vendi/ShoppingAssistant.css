@@ -1,0 +1,391 @@
+@import '../../styles/theme.css';
+@import '../../styles/design-system.css';
+
+/* Base Layout & Container */
+.shopping-assistant {
+  position: fixed;
+  bottom: var(--spacing-xl);
+  right: var(--spacing-xl);
+  z-index: var(--z-index-modal);
+}
+
+.assistant-container {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 350px;
+  height: 500px;
+  background: var(--surface-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-normal);
+  pointer-events: none;
+}
+
+.shopping-assistant.open .assistant-container {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* Buttons & Interactive Elements */
+.assistant-toggle,
+.close-button,
+.send-button,
+.suggestion-button {
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.assistant-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: var(--text-color-light);
+  border: none;
+  font-size: var(--font-size-xl);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.assistant-toggle:hover {
+  transform: scale(1.1);
+  background: var(--primary-dark);
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: var(--text-color-light);
+  font-size: var(--font-size-xl);
+  padding: var(--spacing-xs);
+  line-height: 1;
+}
+
+.send-button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--primary-color);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: var(--border-radius-full);
+  font-weight: var(--font-weight-medium);
+}
+
+.send-button:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.send-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Header */
+.assistant-header {
+  padding: var(--spacing-md);
+  background: var(--primary-color);
+  color: var(--text-color-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.assistant-header h3 {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Messages & Chat */
+.assistant-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.message {
+  display: flex;
+  gap: var(--spacing-sm);
+  max-width: 85%;
+}
+
+.message.user {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+.message.error {
+  color: var(--error-color);
+}
+
+.assistant-avatar {
+  width: 32px;
+  height: 32px;
+  background: var(--primary-color);
+  color: var(--text-color-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  flex-shrink: 0;
+}
+
+.message-content {
+  background: var(--surface-color-alt);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  position: relative;
+}
+
+.message.user .message-content {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.message-text {
+  margin-bottom: var(--spacing-xs);
+  line-height: var(--line-height-relaxed);
+}
+
+.message-time {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  text-align: right;
+}
+
+/* Typing Indicator */
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: var(--spacing-xs) 0;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: var(--text-tertiary);
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* Product Suggestions */
+.product-suggestions {
+  margin-top: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.suggested-product {
+  background: var(--surface-color);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+  border: 1px solid var(--border-color);
+}
+
+.suggested-product:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.product-image {
+  width: 100%;
+  height: 100px;
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  margin-bottom: var(--spacing-xs);
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  background: var(--surface-color-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+}
+
+.product-details h4 {
+  margin: 0 0 var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+}
+
+.product-price {
+  margin: 0;
+  font-weight: var(--font-weight-medium);
+  color: var(--primary-color);
+}
+
+/* Suggestions */
+.suggestions {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  border-top: 1px solid var(--border-color);
+}
+
+.suggestion-button {
+  background: var(--surface-color-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-full);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+}
+
+.suggestion-button:hover {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  border-color: var(--primary-color);
+}
+
+/* Input Area */
+.assistant-input {
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.assistant-input input {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-base);
+  background: var(--surface-color);
+  color: var(--text-primary);
+}
+
+.assistant-input input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.assistant-input input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Dark Theme */
+.dark-theme {
+  .assistant-container {
+    background: var(--surface-color-dark);
+  }
+
+  .message-content {
+    background: var(--surface-color-alt-dark);
+  }
+
+  .message.user .message-content {
+    background: var(--primary-dark);
+    color: var(--text-color-light);
+  }
+
+  .suggested-product {
+    background: var(--surface-color-dark);
+    border-color: var(--border-color-dark);
+  }
+
+  .placeholder-image {
+    background: var(--surface-color-alt-dark);
+    color: var(--text-tertiary-dark);
+  }
+
+  .product-details h4 {
+    color: var(--text-color-light);
+  }
+
+  .suggestion-button {
+    background: var(--surface-color-alt-dark);
+    border-color: var(--border-color-dark);
+    color: var(--text-color-light);
+  }
+
+  .suggestion-button:hover {
+    background: var(--primary-dark);
+    color: var(--text-color-light);
+    border-color: var(--primary-color);
+  }
+
+  .assistant-input input {
+    background: var(--surface-color-dark);
+    color: var(--text-color-light);
+    border-color: var(--border-color-dark);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .shopping-assistant {
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+  }
+
+  .assistant-container {
+    width: calc(100vw - var(--spacing-xl) * 2);
+    height: 60vh;
+    bottom: 70px;
+  }
+
+  .assistant-toggle {
+    width: 50px;
+    height: 50px;
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .shopping-assistant {
+    bottom: var(--spacing-sm);
+    right: var(--spacing-sm);
+  }
+
+  .assistant-container {
+    width: calc(100vw - var(--spacing-md) * 2);
+    height: 70vh;
+  }
+
+  .assistant-toggle {
+    width: 45px;
+    height: 45px;
+    font-size: var(--font-size-base);
+  }
+
+  .message {
+    max-width: 90%;
+  }
+} 
